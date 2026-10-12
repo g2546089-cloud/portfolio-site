@@ -33,6 +33,7 @@ header{
     top: 10px;
     color:#134b98;
     font-weight: bold;
+    border-radius: 10px; 
 }
 nav{
     display: flex;
@@ -47,7 +48,7 @@ footer{
 }
 
 nav a:hover {
-    color: #71cff7;
+    color: #50c4f6;
 }
 
 #top{
@@ -68,7 +69,11 @@ nav a:hover {
 }
 
 .work-card{
-    border: 1px solid #000000;
+    border: 1px solid #fdfdc4;
+    background-color: #fdfdc4;
+    color:#134b98;
+    border-radius: 10px; 
+    overflow: hidden;
 }
 
 .work-card h4{
@@ -95,13 +100,17 @@ nav a:hover {
 .works-controls select {
     padding: 10px;
     font-size: 16px;
+
+    background-color: #d14f41; /* 背景色（例：薄い青系） */
+    color: #fdfdc4;            /* 文字の色 */
+    border: 1px solid #d14f41; /* 枠線の色 */
+    border-radius: 10px;        /* 角を少し丸くする場合（お好みで） */
 }
 
 .work-category {
     font-size: 4px;
     padding-top: 14px;
-    color: #fffdfd;
-    
+    color: #134b98;
 }
 
 .work-year {
@@ -132,4 +141,25 @@ nav a:hover {
 #weather-icon {
     font-size: 60px;
     margin: 0;
+}
+@keyframes fadeIn{
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#top h1 {
+    animation: fadeIn 1.5s ease-out;
+}
+/* 天気マークのクラス名やタグ名に合わせて指定してください（例: .weather-icon） */
+#weather-icon {
+    transition: transform 0.7s ease; /* 回る時のスピードと滑らかさ */
+}
+#weather-icon:hover {
+    transform: rotate(360deg); /* マウスを乗せたら360度（1回転）する */
 }
