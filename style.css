@@ -1,12 +1,21 @@
 *{ box-sizing: border-box; }
+
 html{
     scroll-behavior: smooth;
     scroll-padding-top: 50px;
 }
-
 body{
-    background: #134b98;
-    color: #f4e46b;
+    background-color: #134b98;
+    
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+
+    color: #e7e7e9;
+    transition: background-color 1s;
+
+   font-family: "M Maku Rounded M", "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", Meiryo, sans-serif;
 }
 a{
     color: inherit;
@@ -19,9 +28,11 @@ header{
     width: 100%;
     position: fixed;
     padding: 0px 30px;
-    background: #011f60;
+    background: #fdfdc4;
     height: 75px;
     top: 10px;
+    color:#134b98;
+    font-weight: bold;
 }
 nav{
     display: flex;
@@ -34,52 +45,65 @@ footer{
     padding: 20px 30px;
     font-size: 11px;
 }
+
 nav a:hover {
-    color: #877805
+    color: #71cff7;
 }
+
 #top{
     padding-top: 90px;
 }
+
 #works-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
+
 .work-card img {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
     display: block;
 }
+
 .work-card{
-    border: 1px solid #000000
+    border: 1px solid #000000;
 }
+
 .work-card h4{
     margin: 15px 15px 5px;
 }
+
 .work-card p {
     margin: 0 15px 15px;
     font-size: 14px;
     line-height: 1.6;
 }
+
 .work-card:hover{
     opacity: 0.7;
 }
+
 .works-controls{
     display: flex;
     gap: 10px;
     margin-top: 20px;
     margin-bottom: 30px;
 }
+
 .works-controls select {
     padding: 10px;
     font-size: 16px;
 }
+
 .work-category {
     font-size: 4px;
     padding-top: 14px;
-    color: #9c9c9c
+    color: #fffdfd;
+    
 }
+
 .work-year {
     font-size: 10px;
     margin-top: 10px;
@@ -102,4 +126,10 @@ nav a:hover {
     .works-controls {
         flex-direction: column;
     }
+}
+
+/* 天気 */
+#weather-icon {
+    font-size: 60px;
+    margin: 0;
 }
