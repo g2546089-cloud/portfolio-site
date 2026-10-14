@@ -287,15 +287,15 @@ body.weather-rainy #weather-icon {
 #about::after {
     content: "";
     position: absolute;
-    top: -12px;  /* 上からの位置（少しはみ出させる） */
+    top: 90px;  /* 上からの位置（少しはみ出させる） */
     right: 15px; /* 右端からの位置 */
     width: 100px; /* テープの長さ */
     height: 35px; /* テープの太さ */
     
-    background-color: hsla(166, 91%, 69%, 0.817); /* テープの色 */
+    background-color: hsl(40, 82%, 48%); /* テープの色 */
     opacity: 0.85; /* 透け感 */
     
-    transform: rotate(8deg); /* 左上とは逆向きに斜めにする */
+    transform: rotate(30deg); /* 左上とは逆向きに斜めにする */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
     pointer-events: none;
     z-index: 5;
