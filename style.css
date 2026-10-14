@@ -12,7 +12,7 @@ body{
         linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
     background-size: 20px 20px;
 
-    color: #e7e7e9;
+    color: #fefefe;
     transition: background-color  1s ;
 
    font-family: "M Maku Rounded M", "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", Meiryo, sans-serif;
@@ -54,8 +54,9 @@ nav a:hover {
     color: #50c4f6;
 }
 
-#top{
+#top {
     padding-top: 90px;
+    font-weight: bold;
 }
 
 #works-grid{
@@ -126,7 +127,7 @@ nav a:hover {
 
     background-color: #d14f41; /* 背景色（例：薄い青系） */
     color: #fdfdc4;            /* 文字の色 */
-    border: 1px solid #d14f41; /* 枠線の色 */
+    border: 1.5px solid #fdfdc4; /* 枠線の色 */
     border-radius: 10px;        /* 角を少し丸くする場合（お好みで） */
 }
 
@@ -263,7 +264,24 @@ body.weather-rainy #weather-icon {
     box-shadow: -2px -2px 5px rgba(0,0,0,0.3); /* めくれた紙の下にほんのり影をつける */
 }
 #about {
-    text-align: left;
+    text-align: center;
+    position: relative;
+}
+#about::before {
+    content: "";
+    position: absolute;
+    top: 90px;  /* Aboutセクションの上からはみ出る位置 */
+    left: 10px;  /* 左端からの位置 */
+    width: 120px; /* テープの長さ */
+    height: 35px; /* テープの太さ */
+    
+    background-color: #63c197; /* テープの色（お好みで変更可能） */
+    opacity: 0.85; /* 少し透けさせる */
+    
+    transform: rotate(-10deg); /* ちょっぴり斜めにする */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); /* 立体感の影 */
+    pointer-events: none; /* マウス操作を邪魔しない */
+    z-index: 5; /* 文字より上に重ねる */
 }
 #works {
     text-align: center;
