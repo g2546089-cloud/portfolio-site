@@ -4,7 +4,7 @@ fetch("works.csv")
     })
     .then(function(data) {
         var rows = data.trim().split("\n");
-        var headers = rows[0].split(",");
+        var headers = rows[0].split(",").map(function(h) { return h.trim(); });
 
         var works = rows.slice(1).map(function(row){
             var values = row.split(",");
@@ -118,15 +118,15 @@ fetch("works.csv")
             document.body.className = "weather-sunny";
 
         } else if (code>=1 && code <= 3) {
-            icon.textContent = "⛅";
+            icon.textContent = "☁️";
             document.body.className = "weather-cloudy";
 
         }else if (code >=51 && code <= 67) {
-            icon.textContent = "☔";
+            icon.textContent = "🍭";
             document.body.className = "weather-rainy";
 
         }else {
-            icon.textContent = "☁";
+            icon.textContent = "⛄";
             document.body.className = "weather-cloudy"
         }
     }

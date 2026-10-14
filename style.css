@@ -13,7 +13,7 @@ body{
     background-size: 20px 20px;
 
     color: #e7e7e9;
-    transition: background-color 1s;
+    transition: background-color  1s ;
 
    font-family: "M Maku Rounded M", "Rounded Mplus 1c", "Hiragino Maru Gothic ProN", Meiryo, sans-serif;
 }
@@ -34,6 +34,9 @@ header{
     color:#134b98;
     font-weight: bold;
     border-radius: 10px; 
+    border: 2px solid #fdfdc4;
+    z-index: 9999;
+    border: 2px solid #31365b;
 }
 nav{
     display: flex;
@@ -69,13 +72,33 @@ nav a:hover {
 }
 
 .work-card{
-    border: 1px solid #fdfdc4;
-    background-color: #fdfdc4;
-    color:#134b98;
+    border: 3px solid #333333;
+    background-color: #33354c;
+    color:#ffffff;
     border-radius: 10px; 
     overflow: hidden;
+    position: relative;
+    padding: 12px 20px;
 }
 
+.work-card::before,
+.work-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    background-image: radial-gradient(#fcfbfb 40%, transparent 40%);
+    background-size: 10px 14px; /* 穴の間隔 */
+    background-repeat: repeat-y;
+    z-index: 2;
+}
+.work-card::before {
+    left: 4px;
+}
+.work-card::after {
+    right: 4px;
+}
 .work-card h4{
     margin: 15px 15px 5px;
 }
@@ -110,7 +133,7 @@ nav a:hover {
 .work-category {
     font-size: 4px;
     padding-top: 14px;
-    color: #134b98;
+    color: #ffffff;
 }
 
 .work-year {
@@ -159,7 +182,92 @@ nav a:hover {
 /* 天気マークのクラス名やタグ名に合わせて指定してください（例: .weather-icon） */
 #weather-icon {
     transition: transform 0.7s ease; /* 回る時のスピードと滑らかさ */
+    display: inline-block;
+    animation: spin 4s linear infinite;
+
 }
 #weather-icon:hover {
     transform: rotate(360deg); /* マウスを乗せたら360度（1回転）する */
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+body.weather-sunny #weather-icon {
+    color: #f6e350;
+}
+
+body.weather-cloudy #weather-icon {
+    color: #89c8ca;
+}
+
+body.weather-rainy #weather-icon {
+    color: #068dba;
+}
+
+.paw {
+    font-size: 0.8em;
+    letter-spacing: -4px;
+    display: inline-block;
+}
+
+/* アバウト欄を囲む四角い枠のスタイル */
+.about-box {
+    position: relative;
+    background-color: #f9f9c1;    /* 枠の中の背景色（白など） */
+    border: 2px solid #31365b;    /* フィルム風の濃い枠線 */
+    border-radius: 8px 8px 0 8px;   
+    clip-path: polygon(
+        0% 0%,       /* 左上 */
+        100% 0%,     /* 右上 */
+        100% calc(100% - 30px), 
+        calc(100% - 30px) 100%, /* ★右下から、右から30pxの位置へ */
+        0% 100%   
+       );   /* 左下 */        /* 角を少し丸くする */
+    padding: 24px;                /* 枠の中の余白（広めにとると綺麗です） */
+    max-width: 700px;             /* 横幅が広がりすぎないように制限（必要に応じて調整） */
+    margin: 20px auto;            /* 上下に隙間をあけ、左右は中央寄せにする */
+}
+
+/* 枠の中のテキストの調整 */
+.about-box p {
+    color: #323b69 ;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.about-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;                   /* 右下の角に配置 */
+    right: 0;
+    width: 30px;                 /* カットしたのと同じサイズ（めくれの大きさ） */
+    height: 30px;
+    
+    /* めくれた紙の裏側の色や影を指定（方眼紙の背景になじむ色にするなど） */
+    background: linear-gradient(
+        45deg,
+        #ddd 0%,             /* 影になる暗めの色 */
+        #ddd 100%,            /* 紙の裏側の白い部分 */
+        rgba(0,0,0,0) 50%    /* ★残りの半分を透明にすることで、直角三角形にする */
+    );
+    background-size: 200% 200%; /* グラデーションのサイズ調整 */
+    background-position: bottom right; /* 影の位置調整 */
+    
+    border-radius: 0 0 8px 0;    /* ★めくれた紙の先端（元の右下）を丸くする */
+    box-shadow: -2px -2px 5px rgba(0,0,0,0.3); /* めくれた紙の下にほんのり影をつける */
+}
+#about {
+    text-align: left;
+}
+#works {
+    text-align: center;
+}
+#top {
+    text-align: left;
 }
