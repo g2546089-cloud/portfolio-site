@@ -283,6 +283,23 @@ body.weather-rainy #weather-icon {
     pointer-events: none; /* マウス操作を邪魔しない */
     z-index: 5; /* 文字より上に重ねる */
 }
+/* Aboutセクションの右上に2つ目のテープを貼る場合 */
+#about::after {
+    content: "";
+    position: absolute;
+    top: -12px;  /* 上からの位置（少しはみ出させる） */
+    right: 15px; /* 右端からの位置 */
+    width: 100px; /* テープの長さ */
+    height: 35px; /* テープの太さ */
+    
+    background-color: hsla(166, 91%, 69%, 0.817); /* テープの色 */
+    opacity: 0.85; /* 透け感 */
+    
+    transform: rotate(8deg); /* 左上とは逆向きに斜めにする */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    z-index: 5;
+}
 #works {
     text-align: center;
 }
