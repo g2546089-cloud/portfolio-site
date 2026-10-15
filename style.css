@@ -51,7 +51,7 @@ footer{
 }
 
 nav a:hover {
-    color: #50c4f6;
+    color: #d14f41;
 }
 
 #top {
@@ -305,4 +305,18 @@ body.weather-rainy #weather-icon {
 }
 #top {
     text-align: left;
+}
+
+/* --- ワークカードにマウスを乗せたときの動き --- */
+.work-card {
+    /* もしすでに transition があればまとめてもOKですが、なければ以下を追加 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.work-card:hover {
+    /* カーソルを乗せたときに「下に5px」動かす場合（プラスにすると下、マイナスにすると上に動きます） */
+    transform: translateY(5px);
+    
+    /* 合わせて少し影を濃くすると、浮き出ている（押し込まれている）ような立体感が出ます */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
